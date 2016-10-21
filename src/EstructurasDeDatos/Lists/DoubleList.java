@@ -56,10 +56,13 @@ public class DoubleList <T> {
     public void eNodeFirst(){
         if (isEmpty()){
             System.out.println("¡☠!");
+        } else if (first==last){
+            first=null;
+            last=null;
         } else {
         first=first.next;
         first.prev=null;
-        System.out.println("Se borro el primer elemento");
+        System.out.println("Se borro el primer elemento de doublelist");
         }
     }
     
@@ -68,7 +71,7 @@ public class DoubleList <T> {
             System.out.println("¡☠!");
         } else {
             last=last.prev;
-            last.next=null;
+                last.next=null;
             System.out.println("Se borro el ultimo elemento");
         }
     }
@@ -96,7 +99,7 @@ public class DoubleList <T> {
         }
     }
     
-    private NodeDL searchNode(T data){
+    public NodeDL searchNode(T data){
         NodeDL aux;
         if (isEmpty()){
             return null;
@@ -140,6 +143,45 @@ public class DoubleList <T> {
             System.out.println("");
         } else {
             System.out.println("¡☠!");
+        }
+    }
+    
+    public NodeDL indexNode(int i){
+        if (!(isEmpty())){
+            NodeDL aux;
+            aux=first;
+            int contador=0;
+            while (contador!=i && aux!=null){
+                aux=aux.next;
+                ++contador;
+            }
+            if (aux!=null){
+                return aux;
+            } else{
+                return null;
+            }
+        } else {
+            System.out.println("¡☠!");
+            return null;
+        }
+    }
+    
+    public boolean eIndexNode(NodeDL node){
+        NodeDL aux=node;
+        if(aux==null){
+            System.out.println("¡☠☠☠☠☠!");
+            return false;
+        }else {
+            if (aux==first){
+                eNodeFirst();
+            } else if (aux == last){
+                eNodeLast();
+            } else {
+                aux.next.prev=aux.prev;
+                aux.prev.next=aux.next;
+                System.out.println("Se borro");               
+            }
+            return true; 
         }
     }
 }

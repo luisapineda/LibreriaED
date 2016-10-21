@@ -45,7 +45,7 @@ public class LinealList <T> {
             last=node;
         }
     }
-    protected boolean isEmpty(){
+    public boolean isEmpty(){
         return first==null;
     }
     public void borrarInicio(){

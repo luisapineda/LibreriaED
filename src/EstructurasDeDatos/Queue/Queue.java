@@ -67,7 +67,9 @@ public class Queue <T> {
      * Delete the first node of the queue
      */
     public void delFirst(){
-        if (!isEmpty()){
+        if (first==last){
+            emptyQueue();
+        }else if (!isEmpty()){
             Node temp=new Node();
             temp=this.last;
             while(temp.getNext()!=this.first) {
@@ -85,6 +87,20 @@ public class Queue <T> {
         this.first=null;
         this.last=null;
         this.size=0;
+    }
+    
+    public void showQueue(){
+        if (!(isEmpty())){
+            Node aux;
+            aux=last;
+            do{
+                System.out.print("[" + aux.getData() + "] " );
+                aux=aux.next;
+            } while(aux!=null);
+            System.out.println("");
+        } else {
+            System.out.println("¡☠!");
+        }
     }
     
 }
