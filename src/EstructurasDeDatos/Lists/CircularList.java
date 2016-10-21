@@ -11,10 +11,10 @@ import EstructurasDeDatos.Nodes.Node;
  */
 public class CircularList <T> {
     //Atributos
-    Node pivot;
+    private Node pivot; //SE CAMBIO A PRIVATE
     
    
-    //Constructor nulo
+    //Constructor nulo 
     public CircularList(){
         this.pivot=null;
     }

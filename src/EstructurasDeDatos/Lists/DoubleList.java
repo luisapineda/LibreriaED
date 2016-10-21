@@ -12,14 +12,23 @@ import EstructurasDeDatos.Nodes.NodeDL;
  */
 public class DoubleList <T> {
     //Atributos
-    NodeDL first, last;
-    
+    private NodeDL first, last; //Se cambio a PRIVATE
+
+    public NodeDL getFirst(){
+        return first;    
+    }
+
+    //Getters
+    public NodeDL getLast() {
+        return last;
+    }
+
     //Metodos
     /**
      * Este método inserta un nodo al inicio de la lista
      * @param data es de tipo generico y contiene la informacion importante
      */
-    public void insertFirst(T data){
+    public void insertFirst(T data) {
         //Creamos nuestro nodo
         NodeDL node= new NodeDL(data);
         if(isEmpty()){
@@ -87,7 +96,7 @@ public class DoubleList <T> {
         }
     }
     
-    public NodeDL searchNode(T data){
+    private NodeDL searchNode(T data){
         NodeDL aux;
         if (isEmpty()){
             return null;

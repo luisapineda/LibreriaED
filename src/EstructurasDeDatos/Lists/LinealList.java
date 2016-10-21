@@ -10,8 +10,19 @@ import EstructurasDeDatos.Nodes.Node;
  * @author luisa
  */
 public class LinealList <T> {
-    Node first;
-    Node last;
+    private Node first;
+    private Node last;
+    
+    //Getters
+
+    public Node getFirst() {
+        return first;
+    }
+
+    public Node getLast() {
+        return last;
+    }
+    
     
     //Metodos
     public void insertFirst(T n){
