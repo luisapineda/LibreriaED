@@ -35,8 +35,10 @@ public class DoubleList <T> {
             this.first=node;
             this.last=node;
         } else{
-            node.next=first; //El apuntador siguiente del nuevo nodo, apunta al 
-            first.prev=node;
+            node.setNext(first);
+            //node.next=first; //El apuntador siguiente del nuevo nodo, apunta al 
+            first.setPrev(node);
+            //first.prev=node
             first=node;
         }
     }
@@ -47,8 +49,10 @@ public class DoubleList <T> {
             this.first=node;
             this.last=node;
         } else{
-            node.prev=last; //El apuntador siguiente del nuevo nodo, apunta al 
-            last.next=node;
+            node.setPrev(last);
+            //node.prev=last; //El apuntador siguiente del nuevo nodo, apunta al 
+            last.setNext(node);
+            //last.next=node;
             last=node;
         }
     }
@@ -60,8 +64,10 @@ public class DoubleList <T> {
             first=null;
             last=null;
         } else {
-        first=first.next;
-        first.prev=null;
+        first=first.getNext();
+        //first=first.next;
+        first.setPrev(null);
+        //first.prev=null;
         System.out.println("Se borro el primer elemento de doublelist");
         }
     }
@@ -70,8 +76,10 @@ public class DoubleList <T> {
         if (isEmpty()){
             System.out.println("¡☠!");
         } else {
-            last=last.prev;
-                last.next=null;
+            last=last.getPrev();
+            //last=last.prev;
+            last.setNext(null);
+            //last.next=null;
             System.out.println("Se borro el ultimo elemento");
         }
     }
@@ -105,15 +113,15 @@ public class DoubleList <T> {
             return null;
         }  else {  //Si contiene elementos
             aux=first; 
-            while (aux.data!=data && aux!=last){
+            while (aux.getData()!=data && aux!=last){
                 try {
-                aux=aux.next;
+                aux=aux.getNext();
                 }
                 catch (NullPointerException e){
                     return null;
                 }
             }
-            if (aux.data==data){ return aux; } else { return null;}           
+            if (aux.getData()==data){ return aux; } else { return null;}           
         }
     }
     
@@ -122,8 +130,8 @@ public class DoubleList <T> {
             NodeDL aux;
             aux=first;
             do{
-                System.out.print("[" + aux.data + "] " );
-                aux=aux.next;
+                System.out.print("[" + aux.getData() + "] " );
+                aux=aux.getNext();
             } while(aux!=null);
             System.out.println("");
         } else {
@@ -137,8 +145,8 @@ public class DoubleList <T> {
             NodeDL aux;
             aux=last;
             do{
-                System.out.print("[" + aux.data + "] " );
-                aux=aux.prev;
+                System.out.print("[" + aux.getData() + "] " );
+                aux=aux.getPrev();
             } while(aux!=null);
             System.out.println("");
         } else {
@@ -152,7 +160,7 @@ public class DoubleList <T> {
             aux=first;
             int contador=0;
             while (contador!=i && aux!=null){
-                aux=aux.next;
+                aux=aux.getNext();
                 ++contador;
             }
             if (aux!=null){
@@ -177,8 +185,10 @@ public class DoubleList <T> {
             } else if (aux == last){
                 eNodeLast();
             } else {
-                aux.next.prev=aux.prev;
-                aux.prev.next=aux.next;
+                aux.next.prev=aux.getPrev();
+                aux.prev.next=aux.getNext();
+                //aux.next.prev=aux.prev;
+                //aux.prev.next=aux.next;
                 System.out.println("Se borro");               
             }
             return true; 

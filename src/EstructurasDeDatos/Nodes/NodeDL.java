@@ -10,12 +10,15 @@ package EstructurasDeDatos.Nodes;
  * @author luisa
  */
 public class NodeDL <T> {
-    public T data;
+    private T data;
     public NodeDL next;
     public NodeDL prev;
     
     public NodeDL(T data){
         this.data=data;
+    }
+    public NodeDL(){
+        
     }
 
     public T getData() {
@@ -28,6 +31,18 @@ public class NodeDL <T> {
 
     public NodeDL getPrev() {
         return prev;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    public void setNext(NodeDL next) {
+        this.next = next;
+    }
+
+    public void setPrev(NodeDL prev) {
+        this.prev = prev;
     }
     
 }
