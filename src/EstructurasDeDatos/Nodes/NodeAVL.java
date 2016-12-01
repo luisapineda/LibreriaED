@@ -9,15 +9,15 @@ package EstructurasDeDatos.Nodes;
  *
  * @author luisa
  */
-public class NodeTree <T>{
-    public T data;
-    public NodeTree left;
-    public NodeTree right;
+public class NodeAVL {
+    public int data, bf; //balance factor
+    public NodeAVL left, right;
 
-    public NodeTree(T data) {
+    public NodeAVL(int data) {
         this.data = data;
-        this.left = null;
-        this.right = null;
+        this.left=null;
+        this.right=null;
     }
+    
     
 }

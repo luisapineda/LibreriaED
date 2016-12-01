@@ -14,11 +14,13 @@ public class Queue <T> {
     private Node first;
     private Node last;
     private int size;
+    private Node moving;
     
     //Constructors
     public Queue(){
         this.first=null;
         this.last=null;
+        this.moving=null;
         size=0;
     }
     public Queue(T data){
@@ -80,6 +82,30 @@ public class Queue <T> {
             --this.size;
         }
     }
+    
+    //Método de borrar del profesor Alvizo
+    public T deleteFirst(){
+        Node temp;
+        if (!isEmpty()){
+            if (size==1){
+                temp=this.first;
+                this.first = this.last = null;
+                size=0;
+            }else{
+                temp=last;
+                while(temp.getNext()!=first){
+                    temp=temp.getNext();
+                }
+                first = temp;
+                temp = first.getNext();
+                first.setNext(null);
+                --size;
+            }
+           return (T) temp.getData();
+        }
+        return null;
+    }
+    
     /**
      * Delete all the nodes of the queue
      */

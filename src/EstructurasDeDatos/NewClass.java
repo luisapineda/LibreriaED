@@ -10,5 +10,6 @@ package EstructurasDeDatos;
  * @author luisa
  */
 public class NewClass {
-    
+    //Esta es la libreria de Estructura de Datos AD17
+    //A00513827
 }
