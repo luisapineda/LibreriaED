@@ -12,11 +12,11 @@ import EstructurasDeDatos.Nodes.NodeTree;
 /*Arbol Binario xxx
 Constructorxxxx
 Insertar nodo (dato)xxxxx
-Borrar nodo 
+Borrar nodo xx
 EstaVacioxxxxxxxxxxx
 Obtener raíz 
 Determinar su altura xxxxxxx
-Determinar su número de elementos
+Determinar su número de elementos xxx
 */
 public class BinaryTree <T>{
     //Attributes
@@ -30,10 +30,21 @@ public class BinaryTree <T>{
         //this.height=-1; //Es la altura, se empieza en 1
         this.elements=0;
     }
+    //Getters and Setters
+
+    public NodeTree getRoot() { //regresa la raíz
+        return root;
+    }
     
-    public boolean eTree(){ //Verifica si la raiz esta vacia 
+    public int getElements() { //regresa numero de elementos
+        return elements;
+    }
+    
+    
+    public boolean eTree(){ //Verifica si esta vacio el arbol
         return this.root == null;
     }
+    //Inserta un nuevo nodo
     public void insertNode(T data, NodeTree raiz) {
         NodeTree nodo = new NodeTree(data);
         if (eTree()) {
@@ -78,6 +89,7 @@ public class BinaryTree <T>{
         }
         return n.data.equals(dato);
     }
+    //Borra un nodo
     public void eNode(int dato, NodeTree raiz, int i) {
         if (searchNode(dato, raiz)) {
             while (raices (raiz, dato)) {
@@ -114,6 +126,7 @@ public class BinaryTree <T>{
             System.out.println("No se encontró el dato en el árbol");
         }
     }
+    //Regresar altura
     public int Height(NodeTree n){
         if (n == null) {
             return -1;
@@ -158,6 +171,7 @@ public class BinaryTree <T>{
             }
         }
     }
+    //Buscar nodo
     public boolean searchNode(int dato, NodeTree raiz) {
         if (raiz == null) {
             return false;
@@ -206,9 +220,6 @@ public class BinaryTree <T>{
             recorrerPreOrder(raiz.left, false, izq);
             izq = true;
         }
-    }
-    public int returnElements(){
-        return elements;
     }
     
     /*
